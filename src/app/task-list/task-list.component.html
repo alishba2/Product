@@ -1,0 +1,53 @@
+<h1>Product List</h1>
+<div class="form-group">
+ 
+  <strong>Search By Color</strong>
+  <select style="width: 150px; margin-left: 10px;" [(ngModel)]="color">
+    <option value="pink">pink</option>
+    <option value="blue">blue</option>
+    <option value="black">black</option>
+    <option value="brown">brown</option>
+    <option value="white">white</option>
+
+  </select>
+</div>
+<table  tabindex="-1" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">color</th>
+
+      <th scope="col">Cost</th>
+      <th scope="col">Type</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody *ngFor="let group of tasks  paginate:{
+    itemsPerPage: tableSize,
+    currentPage: page,
+    totalItems: count
+}|tableFilter: color ; index as i">
+    <tr>
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{group.name}}</td>
+      <td>{{group.color}}</td>
+
+      <td>{{group.price}}</td>
+      <td>{{group.type}}</td>
+      <td> <button color="primary" mat-button><a href="details">Update</a></button> </td>
+
+      <td><button (click)="DeleteTask(group.id)" color="accent" mat-button>Delete</button></td>
+
+    </tr>
+
+  </tbody>
+</table>
+<div class="d-flex justify-content-center">
+  <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+  </pagination-controls>
+</div>

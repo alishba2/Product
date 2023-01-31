@@ -1,0 +1,40 @@
+
+
+
+<h1>Product Details</h1>
+<table   class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+    
+  
+      
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">color</th>
+        <th scope="col">price</th>
+
+  
+  
+        
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody *ngFor="let group of tasks">
+      <tr>
+        <th scope="row">1</th>
+        <td>{{group.name}}</td>
+        <td>{{group.color}}</td>
+  
+        <td>{{group.price}}</td>
+        <td>{{group.type}}</td>
+        <td> <button color="primary"(click)="update( )" mat-button><a>Update</a></button> </td>
+
+  
+      </tr>
+  
+    </tbody>
+  </table>
