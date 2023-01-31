@@ -1,4 +1,4 @@
-<h1>Product List</h1>
+ <h1>Product List</h1>
 <div class="form-group">
  
   <strong>Search By Color</strong>
@@ -27,11 +27,11 @@
 
     </tr>
   </thead>
-  <tbody *ngFor="let group of tasks  paginate:{
+  <tbody *ngFor="let group of tasks |tableFilter: color , paginate:{
     itemsPerPage: tableSize,
     currentPage: page,
     totalItems: count
-}|tableFilter: color ; index as i">
+}; index as i">
     <tr>
       <th scope="row">{{ i + 1 }}</th>
       <td>{{group.name}}</td>
